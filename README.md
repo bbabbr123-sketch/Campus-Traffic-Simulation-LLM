@@ -13,7 +13,7 @@
 
 ## 📺 系统运行演示 (Demo)
 
-*(此处插入你制作的 GIF 动图。在 GitHub 网页端编辑 README 时，可直接将本地的 .gif 文件拖拽到此处，会自动生成代码)*
+*(![Image](https://github.com/user-attachments/assets/85d8eeab-dd5e-4b70-92b0-8e6f9f802b3f))*
 
 ---
 
