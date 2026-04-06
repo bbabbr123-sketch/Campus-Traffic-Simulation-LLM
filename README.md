@@ -17,6 +17,10 @@
 
 ---
 
+##  使用说明 (instruction)
+*在使用前请先在with shuttle.py中输入您的apikey与所使用模型
+
+---
 ##  核心特性 (Core Features)
 
 ### 1. LLM 调度中枢与沙盒评测闭环
