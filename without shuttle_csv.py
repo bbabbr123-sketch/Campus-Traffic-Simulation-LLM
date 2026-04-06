@@ -397,7 +397,7 @@ class DataCollectorSimulation:
                     s.move(self.campus.grid, g, self.occupancy_grid, self.bike_grid)
                     s.update_dynamic_ride_willingness(g[s.y, s.x]); s.try_grab_bike(self.bike_grid)
 
-        print("🎉 数据采集同步完成！请重新训练并运行 with shuttle.py")
+        print(" 数据采集同步完成！请重新训练并运行 with shuttle.py")
 
 if __name__ == "__main__":
     sim = DataCollectorSimulation(num_per_dorm=200, num_bikes=300)
