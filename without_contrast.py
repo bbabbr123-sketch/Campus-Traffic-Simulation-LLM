@@ -215,9 +215,7 @@ class Map:
                     elif roads_bottom:
                         b.door_positions.extend(roads_bottom)
 
-                # ==========================================
-                # 严格按照要求：宿舍二只在右边保留宽度为5的门
-                # ==========================================
+
                 elif display_name == "宿舍2":
                     roads_right = []
                     road_x = start_col + BUILDING_SIZE
@@ -226,9 +224,7 @@ class Map:
                             roads_right.append((road_x, y))
                     b.door_positions.extend(roads_right)
 
-                # ==========================================
-                # 严格按照要求：宿舍一只在左边保留宽度为5的门
-                # ==========================================
+
                 elif display_name == "宿舍1":
                     roads_left = []
                     road_x = start_col - 1
@@ -315,10 +311,7 @@ class Simulation:
 
         daily_schedule = []
         if not is_weekend:
-            # ==========================================
-            # 🛑 同步物理规律：早中晚餐概率调整为 1.0 (100%干饭)
-            # 保证与 AI 调度版、采集器完全平行的基线环境
-            # ==========================================
+
             daily_schedule.extend([
                 (7 * 3600, "前往食堂吃早餐", CANTEEN, 1.0, False),
                 (8 * 3600, "上午教学楼上课", CLASSROOM, 0.66, False),
@@ -369,7 +362,6 @@ class Simulation:
         bikes_to_place = num_bikes
 
         for d in dorms:
-            # 紧贴门边3x3 (-1到+1) 密集投放
             nearby_roads = [(dx + ox, dy + oy) for dx, dy in d.door_positions for oy in range(-1, 2) for ox in
                             range(-1, 2) if 0 <= dx + ox < MAP_WIDTH and 0 <= dy + oy < MAP_HEIGHT and self.campus.grid[
                                 dy + oy, dx + ox] == ROAD]
