@@ -18,7 +18,7 @@
 ---
 
 ##  使用说明 (instruction)
-*在使用前请先在with shuttle.py中输入您的apikey与所使用模型
+* 在使用前请先在with shuttle.py中输入您的apikey与所使用模型
 
 ---
 ##  核心特性 (Core Features)
