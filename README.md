@@ -7,11 +7,10 @@ Campus Traffic Simulation & Dynamic Scheduling Engine
 
 > 本项目是一个从零构建的多智能体微观仿真系统，旨在解决校园共享单车时空供需不平衡问题。系统集成了大语言模型（LLM）进行宏观决策，并引入人工势场法与防死锁机制模拟微观人群交互。
 
-🔗 **[点击此处在线体验仿真沙盘可视化大屏]**(此处替换为你的GitHub Pages网页链接)
 
 ---
 
-## 🎯 核心特性 (Core Features)
+##  核心特性 (Core Features)
 
 ### 1. LLM 调度中枢与沙盒评测闭环 (LLM & Sandbox Verification)
 * **大模型接入**：将大语言模型作为宏观调度大脑，实现自然语言到系统底层调度指令的转化。
