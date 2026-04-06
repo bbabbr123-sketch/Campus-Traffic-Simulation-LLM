@@ -440,7 +440,7 @@ class Simulation:
             y = df.iloc[:, 57:].values
 
             # ==========================================
-            # 📊 新增：模型准确度评估模块
+            # 模型准确度评估模块
             # ==========================================
             from sklearn.model_selection import train_test_split
             from sklearn.metrics import mean_absolute_error, r2_score
@@ -451,19 +451,17 @@ class Simulation:
             # 先用 80% 的数据训练模型
             self.nn_model.fit(X_train, y_train)
 
-            # 让模型做“期末考试”
             y_pred = self.nn_model.predict(X_test)
             mae = mean_absolute_error(y_test, y_pred)
             r2 = r2_score(y_test, y_pred)
 
             print("-" * 50)
-            print(f"📊 【神经网络预测性能评估报告】")
-            print(f"   👉 数据总量: {len(X)} 条时空切片")
-            print(f"   👉 R² (拟合优度) : {r2:.4f}  (注: 越接近1.0说明模型越能准确捕捉潮汐规律)")
-            print(f"   👉 MAE (平均绝对误差) : {mae:.2f} 辆  (注: 预测缺口和真实缺口平均相差 {mae:.2f} 辆车)")
+            print(f" 【神经网络预测性能评估报告】")
+            print(f"    数据总量: {len(X)} 条时空切片")
+            print(f"    R² (拟合优度) : {r2:.4f}  (注: 越接近1.0说明模型越能准确捕捉潮汐规律)")
+            print(f"    MAE (平均绝对误差) : {mae:.2f} 辆  (注: 预测缺口和真实缺口平均相差 {mae:.2f} 辆车)")
             print("-" * 50)
 
-            # 考试评估完后，为了让沙盘在实际调度中达到最强性能，我们把 100% 全量数据喂给它重训一次
             self.nn_model.fit(X, y)
             print("[NN 模型] 全量数据终极拟合完毕，大模型调度大脑已接入！")
 
@@ -639,7 +637,6 @@ class Simulation:
             cur_score = current_scores_dict[b]
             nn_data += f"[{b.name}]:当前缺口 {cur_score:.1f} 辆，预测1小时后缺口{f_score:.1f} 辆\n"
 
-        # 【修改点 2：仅修改 Prompt，引导模型让 3 辆卡车去不同地方】
         prompt = f"""
 你是一个同济大学的高级 AI 调度员。时间是第{self.day}天{self.format_time(snapshot_time)}。
 
@@ -647,7 +644,7 @@ class Simulation:
 
 {nn_data}
 
-【🎯 调度核心逻辑】：
+【 调度核心逻辑】：
 
 1. 寻找缺口最大的正数区域作为目标(tgt)。
 
@@ -790,7 +787,6 @@ class Simulation:
         sc = ax_map.scatter([], [], c=[], s=12, zorder=5, edgecolors='black', linewidths=0.3)
         shuttle_sc = ax_map.scatter([], [], c='gold', marker='*', s=450, zorder=8, edgecolors='black', linewidths=1.5)
 
-        # 【加入 wrap=True 自动换行，并调小一点字号保证能装下】
         self.dashboard_text = ax_text.text(0.0, 1.0, "", fontsize=11, va='top', ha='left', fontfamily='SimHei',
                                            bbox=dict(facecolor='#F8F9FA', edgecolor='black', boxstyle='round,pad=1.0',
                                                      alpha=0.9), wrap=True)
